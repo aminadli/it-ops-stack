@@ -1,6 +1,6 @@
 services:
   osticket:
-    image: lliwi/osticket:1.18.1
+    image: lliwi/osticket:1.18.3
     container_name: osticket
     restart: unless-stopped
     ports:
