@@ -1,0 +1,18 @@
+watch:
+  schedule: "0 */6 * * *"
+  firstCheckNotif: true
+  runOnStartup: true
+  compareDigest: true
+
+providers:
+  docker:
+    watchByDefault: true
+    watchStopped: false
+
+notif:
+  discord:
+    webhookURL: "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN"
+    mentions:
+      - "@everyone"
+    renderFields: true
+    timeout: 10s
