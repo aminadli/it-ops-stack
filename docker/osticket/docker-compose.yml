@@ -1,0 +1,52 @@
+services:
+  osticket:
+    image: lliwi/osticket:1.18.1
+    container_name: osticket
+    restart: unless-stopped
+    ports:
+      - "8083:80"
+    environment:
+      DB_HOST: osticket-db
+      DB_NAME: osticket
+      DB_USER: osticket
+      DB_PASS: CHANGE_ME_DB
+      INSTALL_SECRET: CHANGE_ME_SECRET
+      INSTALL_EMAIL: admin@example.com
+      INSTALL_NAME: IT Helpdesk
+      ADMIN_FIRSTNAME: Admin
+      ADMIN_LASTNAME: User
+      ADMIN_EMAIL: admin@example.com
+      ADMIN_USER: ostadmin
+      ADMIN_PASS: CHANGE_ME_ADMIN
+      SMTP_HOST: ""
+      SMTP_PORT: 25
+      SMTP_FROM: helpdesk@example.com
+      SMTP_TLS: 0
+    volumes:
+      - osticket-data:/var/www/html
+    networks:
+      - shared_network
+    depends_on:
+      - osticket-db
+
+  osticket-db:
+    image: mysql:8.3
+    container_name: osticket-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: CHANGE_ME_ROOT
+      MYSQL_DATABASE: osticket
+      MYSQL_USER: osticket
+      MYSQL_PASSWORD: CHANGE_ME_DB
+    volumes:
+      - osticket-db-data:/var/lib/mysql
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    external: true
+
+volumes:
+  osticket-data:
+  osticket-db-data:
