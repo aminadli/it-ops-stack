@@ -1,0 +1,37 @@
+services:
+  snipeit:
+    image: snipe/snipe-it:latest
+    container_name: snipeit
+    restart: unless-stopped
+    ports:
+      - "8088:80"
+    env_file:
+      - .env
+    volumes:
+      - snipeit-data:/var/lib/snipeit
+    networks:
+      - shared_network
+    depends_on:
+      - snipeit-db
+
+  snipeit-db:
+    image: mariadb:11
+    container_name: snipeit-db
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=CHANGE_ME_ROOT
+      - MYSQL_DATABASE=snipeit
+      - MYSQL_USER=snipeit
+      - MYSQL_PASSWORD=CHANGE_ME_DB
+    volumes:
+      - snipeit-db-data:/var/lib/mysql
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    external: true
+
+volumes:
+  snipeit-data:
+  snipeit-db-data:
