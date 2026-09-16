@@ -1,6 +1,6 @@
 services:
   osticket:
-    image: lliwi/osticket:1.18.3
+    image: hlhd/osticket:latest
     container_name: osticket
     restart: unless-stopped
     ports:
@@ -9,18 +9,18 @@ services:
       DB_HOST: osticket-db
       DB_NAME: osticket
       DB_USER: osticket
-      DB_PASS: CHANGE_ME_DB
-      INSTALL_SECRET: CHANGE_ME_SECRET
-      INSTALL_EMAIL: admin@example.com
+      DB_PASS: ${DB_PASS}
+      INSTALL_SECRET: ${INSTALL_SECRET}
+      INSTALL_EMAIL: ${INSTALL_EMAIL}
       INSTALL_NAME: IT Helpdesk
-      ADMIN_FIRSTNAME: Admin
-      ADMIN_LASTNAME: User
-      ADMIN_EMAIL: admin@example.com
+      ADMIN_FIRSTNAME: ${ADMIN_FIRSTNAME}
+      ADMIN_LASTNAME: ${ADMIN_LASTNAME}
+      ADMIN_EMAIL: admin@example.com##PLACEHOLDER
       ADMIN_USER: ostadmin
-      ADMIN_PASS: CHANGE_ME_ADMIN
+      ADMIN_PASS: ${ADMIN_PASS}
       SMTP_HOST: ""
       SMTP_PORT: 25
-      SMTP_FROM: helpdesk@example.com
+      SMTP_FROM: helpdesk@example.com##PLACEHOLDER
       SMTP_TLS: 0
     volumes:
       - osticket-data:/var/www/html
@@ -34,10 +34,10 @@ services:
     container_name: osticket-db
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: CHANGE_ME_ROOT
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: osticket
       MYSQL_USER: osticket
-      MYSQL_PASSWORD: CHANGE_ME_DB
+      MYSQL_PASSWORD: ${DB_PASS}
     volumes:
       - osticket-db-data:/var/lib/mysql
     networks:
