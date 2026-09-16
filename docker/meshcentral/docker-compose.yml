@@ -8,7 +8,7 @@ services:
     environment:
       - HOSTNAME=100.114.165.59
       - REVERSE_PROXY=false
-      - ALLOW_NEW_ACCOUNTS=true
+      - ALLOW_NEW_ACCOUNTS=false
       - WEBRTC=false
       - NODE_ENV=production
       - USE_MONGODB=false
