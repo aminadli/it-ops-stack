@@ -6,23 +6,22 @@ services:
     ports:
       - "8083:80"
     environment:
-      CONFIG_DBHOST: osticket-db
-      CONFIG_DBNAME: osticket
-      CONFIG_DBUSER: osticket
-      CONFIG_DBPASS: ${OSTICKET_DB_PASS}
-      CONFIG_DBPORT: 3306
-      CONFIG_TABLE_PREFIX: ost_
+      HELPDESK_NAME: IT Helpdesk
+      DEFAULT_EMAIL: aminsolehuddin@gmail.com
+      TABLE_PREFIX: ost_
       INSTALL_SECRET: ${OSTICKET_SECRET}
-      INSTALL_EMAIL: helpdesk@example.com
-      INSTALL_NAME: YourCompany IT Helpdesk
       ADMIN_FIRSTNAME: Amin
-      ADMIN_LASTNAME: Solehuddin
-      ADMIN_EMAIL: your-real-email@example.com
-      ADMIN_USER: itsupport
-      ADMIN_PASS: ${OSTICKET_ADMIN_PASS}
+      ADMIN_LASTNAME: Adli
+      ADMIN_EMAIL: aminsolehuddin@gmail.com
+      ADMIN_USERNAME: itsupport
+      ADMIN_PASSWORD: ${OSTICKET_ADMIN_PASS}
+      CONFIG_DBHOST: osticket-db
+      MARIADB_DATABASE: osticket
+      MARIADB_USER: osticket
+      MARIADB_PASSWORD: ${OSTICKET_DB_PASS}
       SMTP_HOST: ""
       SMTP_PORT: 25
-      SMTP_FROM: helpdesk@example.com
+      SMTP_FROM: aminsolehuddin@gmail.com
       SMTP_TLS: 0
     volumes:
       - osticket-data:/var/www/html
