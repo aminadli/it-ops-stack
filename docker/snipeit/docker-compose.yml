@@ -19,10 +19,10 @@ services:
     container_name: snipeit-db
     restart: unless-stopped
     environment:
-      - MYSQL_ROOT_PASSWORD=CHANGE_ME_ROOT
-      - MYSQL_DATABASE=snipeit
-      - MYSQL_USER=snipeit
-      - MYSQL_PASSWORD=CHANGE_ME_DB
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     volumes:
       - snipeit-db-data:/var/lib/mysql
     networks:
