@@ -16,6 +16,7 @@ services:
       - meshcentral-data:/opt/meshcentral/meshcentral-data
       - meshcentral-files:/opt/meshcentral/meshcentral-files
       - meshcentral-backups:/opt/meshcentral/meshcentral-backups
+      - ./config.json:/opt/meshcentral/meshcentral-data/config.json:ro
     networks:
       - shared_network
 
