@@ -25,26 +25,4 @@ networks:
     external: true
 
 volumes:
-  diun-data:services:
-  diun:
-    image: crazymax/diun:4.31.0
-    container_name: diun
-    restart: unless-stopped
-    volumes:
-      - diun-data:/data
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./diun.yml:/diun.yml:ro
-    environment:
-      - TZ=Asia/Kuala_Lumpur
-      - DIUN_WATCH_SCHEDULE=0 */6 * * *
-      - DIUN_PROVIDERS_DOCKER=true
-      - DIUN_WATCH_FIRSTCHECKNOTIF=true
-    networks:
-      - shared_network
-
-networks:
-  shared_network:
-    external: true
-
-volumes:
   diun-data:
