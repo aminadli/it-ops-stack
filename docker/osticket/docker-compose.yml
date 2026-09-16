@@ -12,7 +12,7 @@ services:
       INSTALL_SECRET: ${OSTICKET_SECRET}
       ADMIN_FIRSTNAME: Amin
       ADMIN_LASTNAME: Adli
-      ADMIN_EMAIL: aminsolehuddin@gmail.com
+      ADMIN_EMAIL: aminsolehuddin_1@gmail.com
       ADMIN_USERNAME: itsupport
       ADMIN_PASSWORD: ${OSTICKET_ADMIN_PASS}
       CONFIG_DBHOST: osticket-db
