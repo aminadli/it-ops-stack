@@ -4,9 +4,9 @@ services:
     container_name: meshcentral
     restart: unless-stopped
     ports:
-      - "8086:443"
+      - "8086:8086"
+      - "8087:8087"
     environment:
-      - HOSTNAME=100.114.165.59
       - REVERSE_PROXY=false
       - ALLOW_NEW_ACCOUNTS=false
       - WEBRTC=false
